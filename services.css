@@ -8,43 +8,45 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.headerRow1 {
+  }
+  
+  .headerRow1{
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.mainLogo {  
-    width: 300px;
+    align-items: center;       /* Keeps logo + title vertically aligned */
+  }
+  
+  .mainLogo {  
+    width: 300px;               /* exact same size as index.html/sodas.html */
     height: auto;
-    margin-bottom: -120px;
-}
-
-.homePageTitle {
+    margin-bottom: -120px;      /* same spacing */
+  }
+  
+  .homePageTitle{
     margin: 0;
     padding: 0;
     color: white;
-}
-
-.nav {
+    text-align: center;         /* same styling */
+  }
+  
+  .nav {
+    margin-top: 20px;
     display: flex;
     gap: 20px;
     justify-content: center;
     padding: 15px;
     background: rgba(0,0,0,0.7);
-}
-
-.nav a {
+  }
+  
+  .nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-}
-
-.nav a:hover {
+  }
+  
+  .nav a:hover {
     text-decoration: underline;
-}
+  }
 
 h2 {
     text-align: center;

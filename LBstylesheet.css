@@ -1,33 +1,39 @@
 body {
   /* This will be the background color visible through the transparent parts of your image */
   background-color: #5C5CFF; 
-  
+  font-family: Arial, sans-serif;
 }
 
 .main-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+}
+
+.homePageTitle {
+  margin: 0;
+  padding: 0;
+  color: white;
 }
 
 .headerRow1{
 	display: flex;
   flex-direction: column;
-  align-items: center;       /* Keeps logo + title vertically aligned */
+  align-items: center;       
+}
+
+.main-header {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  align-items: center;      /* center horizontally */
+  gap: 5px;                 /* smaller spacing between logo and title */
+  position: relative;
 }
 
 .mainLogo {  
-	width: 300px;         /* Change as you like */
+  width: 300px;
   height: auto;
-  justify-content: center;
-  align-items: center;
   margin-bottom: -120px;
-}
-
-.homePageTitle{
-	margin: 0;
-	padding: 0;
 }
 
 .nav {
@@ -53,6 +59,28 @@ h1, h2 {
   margin: 0 auto;       
   border-radius: 10px;  
 }
+
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;          
+  max-width: 600px;     
+  margin: 0 auto;       
+  border-radius: 10px;  
+}
+
+.contact-inner {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
 
 .introParagraph p {
   margin-bottom: 1em;
