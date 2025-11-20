@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 body {
   /* This will be the background color visible through the transparent parts of your image */
   background-color: #5C5CFF; 
@@ -19,7 +23,8 @@ body {
 .headerRow1{
 	display: flex;
   flex-direction: column;
-  align-items: center;       
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .main-header {
@@ -28,12 +33,14 @@ body {
   align-items: center;      /* center horizontally */
   gap: 5px;                 /* smaller spacing between logo and title */
   position: relative;
+  box-sizing: border-box;
 }
 
 .mainLogo {  
   width: 300px;
   height: auto;
   margin-bottom: -120px;
+  box-sizing: border-box;
 }
 
 .nav {
@@ -71,6 +78,7 @@ h1, h2 {
   max-width: 600px;     
   margin: 0 auto;       
   border-radius: 10px;  
+  box-sizing: border-box;
 }
 
 .contact-inner {
@@ -114,6 +122,13 @@ h1, h2 {
     text-align: center;
     gap: 10px;
   }
+  .carousel-card {
+    width: 90%;
+    height: auto;
+}
+.carousel-wrapper {
+    margin: 20px;
+}
 }
 
 .contactForm input,
@@ -264,3 +279,68 @@ h3 {
           drop-shadow(0 0 36px rgba(0, 255, 255, 0.5));
   transform: scale(1.05);
 }
+
+/* Carousel */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin: auto auto;
+}
+
+.carousel-container {
+  overflow: hidden;
+  flex: 1;
+  border-radius: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-card {
+  flex: 0 0 100%; /* Fill container */
+  background: rgba(0,0,0,0.75);
+  padding: 25px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.serviceImg {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.carousel-btn {
+  background: rgba(39, 36, 36, 0.7);
+  border: none;
+  font-size: 2rem;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: white;
+}
+
+.left-btn { order: -1; }
+.right-btn { order: 1; }

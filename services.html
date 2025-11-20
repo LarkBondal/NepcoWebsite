@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>NepCo - Services</title>
 <link rel="icon" type="image/png" href="images/mainNepcoLogo.png">
-<link rel="stylesheet" href="services.css">
+<link rel="stylesheet" href="LBstylesheet.css">
 </head>
 <body>
 <main>
@@ -53,39 +53,33 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".carousel-track");
-  const container = document.querySelector(".carousel-container");
+  const cards = Array.from(track.children);
   const btnLeft = document.querySelector(".left-btn");
   const btnRight = document.querySelector(".right-btn");
-
-  const cards = Array.from(track.children);
-  const cardCount = cards.length;
   let currentIndex = 0;
 
   function updateCarousel() {
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    const moveX = cardWidth * currentIndex;
+    const containerWidth = document.querySelector(".carousel-container").offsetWidth;
     track.style.transition = "transform 0.5s ease";
-    track.style.transform = `translateX(-${moveX}px)`;
+    track.style.transform = `translateX(-${containerWidth * currentIndex}px)`;
   }
 
   function moveRight() {
     currentIndex++;
-    if (currentIndex >= cardCount) currentIndex = 0;
+    if (currentIndex >= cards.length) currentIndex = 0;
     updateCarousel();
   }
 
   function moveLeft() {
     currentIndex--;
-    if (currentIndex < 0) currentIndex = cardCount - 1;
+    if (currentIndex < 0) currentIndex = cards.length - 1;
     updateCarousel();
   }
 
   btnRight.addEventListener("click", moveRight);
   btnLeft.addEventListener("click", moveLeft);
 
-  // Center first card on load
   updateCarousel();
-
   window.addEventListener("resize", updateCarousel);
 });
 </script>
