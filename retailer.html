@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>NepCo - Become a Retailer</title>
+  <link rel="icon" type="image/png" href="images/mainNepcoLogo.png">
+  <link rel="stylesheet" href="LBstylesheet.css">
+</head>
+
+<body>
+
+<header class="main-header">
+  <div class="headerRow1">
+    <img src="./images/mainNepcoLogo.jpg" alt="Nepco logo" class="mainLogo">
+    <h1 class="homePageTitle">Nepco Retailer Program</h1>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="sodas.html"> Sodas</a>
+  </nav>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const forms = document.querySelectorAll("form");
+
+    forms.forEach(form => {
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const messageBox = document.createElement("div");
+
+        messageBox.classList.add("successMessage");
+
+        messageBox.textContent = "Your submission was sent successfully!";
+
+        document.body.appendChild(messageBox);
+
+        setTimeout(() => messageBox.classList.add("show"), 10);
+
+        setTimeout(() => {
+          messageBox.classList.remove("show");
+          setTimeout(() => messageBox.remove(), 400);
+        }, 3000);
+        form.reset();
+      });
+    });
+  });
+</script>
+</header>
+
+
+<main>
+  <div class="formContainer">
+    <div class="formBox">
+      <h2>Apply to Sell Nepco Products</h2>
+      <p>Provide your retail information below to join our distribution list.</p>
+      <form>
+        <label for="store">Store / Business Name:</label>
+        <input type="text" id="store" name="store" required><br><br>
+        <label for="email">Business Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="phone">Business Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        <label for="type">Business Type:</label>
+        <select id="type" name="type" required>
+          <option value="">Choose one...</option>
+          <option value="grocery">Grocery Store</option>
+          <option value="gas_station">Gas Station</option>
+          <option value="convenience_store">Convenience Store</option>
+          <option value="specialty">Specialty Beverage Shop</option>
+          <option value="online_only">Online Retailer</option>
+        </select><br><br>
+        <label for="address">Business Address:</label>
+        <textarea id="address" name="address" rows="3" required></textarea><br><br>
+        <label for="message">Additional Info:</label>
+        <textarea id="message" name="message" rows="5"></textarea><br><br>
+        <button type="submit">Submit Retailer Application</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+</body>
+
+</html>

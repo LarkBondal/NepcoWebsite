@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NepCo - Services</title>
+  <link rel="icon" type="image/png" href="images/mainNepcoLogo.png">
+  <link rel="stylesheet" href="LBstylesheet.css">
+
+  <!-- RUN SCRIPT AFTER HTML LOADS -->
+  <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector(".carousel-track");
+      const realCards = Array.from(document.querySelectorAll(".carousel-card"));
+      const btnLeft = document.querySelector(".left-btn");
+      const btnRight = document.querySelector(".right-btn");
+    
+      // --- Create clones properly ---
+      const firstClone = realCards[0].cloneNode(true);
+      const lastClone = realCards[realCards.length - 1].cloneNode(true);
+    
+      firstClone.classList.add("clone");
+      lastClone.classList.add("clone");
+    
+      track.appendChild(firstClone);
+      track.insertBefore(lastClone, track.firstChild);
+    
+      // IMPORTANT: now grab ALL cards INCLUDING CLONES
+      let allCards = Array.from(document.querySelectorAll(".carousel-card"));
+    
+      let index = 1;  // start on real first card
+      let cardWidth;
+    
+      function updateSizes() {
+        cardWidth = 320;
+        track.style.transition = "none";
+        track.style.transform = `translateX(${-index * cardWidth}px)`;
+      }
+    
+      window.addEventListener("resize", updateSizes);
+    
+      function updateCarousel() {
+        track.style.transition = "transform 0.5s ease";
+        track.style.transform = `translateX(${-index * cardWidth}px)`;
+    
+        allCards.forEach(card => card.classList.remove("active"));
+        allCards[index].classList.add("active");
+      }
+    
+      track.addEventListener("transitionend", () => {
+        if (allCards[index].classList.contains("clone")) {
+          track.style.transition = "none";
+          index = index === 0 ? realCards.length : 1;
+          track.style.transform = `translateX(${-index * cardWidth}px)`;
+        }
+      });
+    
+      btnRight.addEventListener("click", () => {
+        index++;
+        updateCarousel();
+      });
+    
+      btnLeft.addEventListener("click", () => {
+        index--;
+        updateCarousel();
+      });
+    
+      updateSizes();
+      updateCarousel();
+    });
+    </script>
+</head>
+
+<body>
+
+<main>
+
+<header class="main-header">
+  <div class="headerRow1">
+    <img src="./images/mainNepcoLogo.jpg" alt="Nepco logo" class="mainLogo">
+    <h1 class="homePageTitle">Nepco Beverages</h1>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="sodas.html">Sodas</a>
+  </nav>
+</header>
+
+<h2>Our Services</h2>
+
+<div class="carousel-container">
+  <button class="carousel-btn left-btn">&#10094;</button>
+
+  <div class="carousel-track">
+
+    <div class="serviceCard carousel-card">
+      <a href="logistics.html">
+        <img src="images/nepcoLogistics.jpg" class="serviceImg">
+      </a>
+      <h3>Join Our Logistics Team</h3>
+      <p>Help us deliver Nepco Beverages worldwide!</p>
+    </div>
+
+    <div class="serviceCard carousel-card">
+      <a href="retailer.html">
+        <img src="images/nepcolaRetailer.jpg" class="serviceImg">
+      </a>
+      <h3>Become a Retailer</h3>
+      <p>Stock Nepco drinks and offer them to your customers.</p>
+    </div>
+
+    <div class="serviceCard carousel-card">
+      <a href="aboutme.html">
+        <img src="images/poseidonCEO.jpg" class="serviceImg">
+      </a>
+      <h3>About the Creator</h3>
+      <p>Meet the founder and learn the mission behind Nepco.</p>
+    </div>
+
+  </div>
+
+  <button class="carousel-btn right-btn">&#10095;</button>
+</div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NepCo - Contact</title>
+  <link rel="icon" type="image/png" href="images/mainNepcoLogo.png">
+  <link rel="stylesheet" href="LBstylesheet.css">
+</head>
+
+<body>
+  <header class="main-header">
+
+    <!-- ROW 1: Logo + Title -->
+    <div class="headerRow1">
+      <img src="./images/mainNepcoLogo.jpg" alt="Nepco logo" class="mainLogo">
+      <h1 class="homePageTitle">Nepco Beverages</h1>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="sodas.html">Sodas</a>
+    </nav>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const forms = document.querySelectorAll("form");
+
+    forms.forEach(form => {
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const messageBox = document.createElement("div");
+
+        messageBox.classList.add("successMessage");
+
+        messageBox.textContent = "Your submission was sent successfully!";
+
+        document.body.appendChild(messageBox);
+
+        setTimeout(() => messageBox.classList.add("show"), 10);
+
+        setTimeout(() => {
+          messageBox.classList.remove("show");
+          setTimeout(() => messageBox.remove(), 400);
+        }, 3000);
+        form.reset();
+      });
+    });
+  });
+</script>
+
+  </header>
+
+  <main>
+    <h2>Contact Us</h2>
+
+    <!-- FORM SECTION -->
+    <div class="homePageFlexBio">
+      <div class="introParagraph">
+
+        <p>Have a question or want to reach out? Send us a message below:</p>
+
+        <form class="contactForm">
+
+          <!-- Email -->
+          <label for="email">Your Email:</label><br>
+          <input type="email" id="email" name="email" required><br><br>
+
+          <!-- Phone -->
+          <label for="phone">Your Phone Number:</label><br>
+          <input type="tel" id="phone" name="phone" required><br><br>
+
+          <!-- Message -->
+          <label for="message">Your Message:</label><br>
+          <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+          <!-- Submit -->
+          <button type="submit">Submit Message</button>
+
+        </form>
+
+        <br><br>
+
+        <!-- CONTACT INFO -->
+        <h3 style="color: white;">Company Contact Info</h3>
+        <p>Email: NepcoSupport@nepco.com</p>
+        <p>Phone: (702) 123-4567 </p>
+
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

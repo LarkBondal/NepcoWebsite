@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>NepCo - Logistics Partner</title>
+  <link rel="icon" type="image/png" href="images/mainNepcoLogo.png">
+  <link rel="stylesheet" href="LBstylesheet.css">
+</head>
+
+<body>
+
+<header class="main-header">
+  <div class="headerRow1">
+    <img src="./images/mainNepcoLogo.jpg" alt="Nepco logo" class="mainLogo">
+    <h1 class="homePageTitle">Nepco Logistics Program</h1>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="sodas.html"> Sodas</a>
+  </nav>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const forms = document.querySelectorAll("form");
+
+    forms.forEach(form => {
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const messageBox = document.createElement("div");
+
+        messageBox.classList.add("successMessage");
+
+        messageBox.textContent = "Your submission was sent successfully!";
+
+        document.body.appendChild(messageBox);
+
+        setTimeout(() => messageBox.classList.add("show"), 10);
+
+        setTimeout(() => {
+          messageBox.classList.remove("show");
+          setTimeout(() => messageBox.remove(), 400);
+        }, 3000);
+        form.reset();
+      });
+    });
+  });
+</script>
+</header>
+
+
+<main>
+  <div class="formContainer">
+    <div class="formBox">
+      <h2>Apply to Become a Logistics Partner</h2>
+      <p>Submit your company information below to join our distribution network.</p>
+      <form>
+        <label for="company">Company Name:</label>
+        <input type="text" id="company" name="company" required><br><br>
+        <label for="email">Business Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="phone">Business Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        <label for="area">Service Region:</label>
+        <input type="text" id="area" name="area" placeholder="e.g., Southwest US" required><br><br>
+        <label for="fleet">Fleet Size:</label>
+        <input type="number" id="fleet" name="fleet" min="1" required><br><br>
+        <label for="message">Additional Details:</label>
+        <textarea id="message" name="message" rows="5"></textarea><br><br>
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
