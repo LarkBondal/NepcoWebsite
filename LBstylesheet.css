@@ -328,7 +328,7 @@ h3 {
 }
 
 .carousel-btn {
-  background: rgba(39, 36, 36, 0.7);
+  background: rgba(33, 91, 158, 0.575);
   border: none;
   font-size: 2rem;
   margin: 20px;
@@ -344,3 +344,54 @@ h3 {
 
 .left-btn { order: -1; }
 .right-btn { order: 1; }
+
+/* FAQ Container */
+.faq-container {
+  max-width: 800px;
+  margin: 40px auto;
+  color: white;
+}
+
+/* FAQ item */
+.faq-item {
+  background: rgba(0,0,0,0.7);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+/* FAQ question button */
+.faq-question {
+  width: 100%;
+  background: rgba(33, 91, 158, 0.575);
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* FAQ answer panel */
+.faq-answer {
+  color: black;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.747);
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  text-align: center;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px; /* Enough for typical answers */
+  padding: 15px 20px;
+}

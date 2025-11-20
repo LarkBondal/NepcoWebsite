@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>NepCo - FAQs</title>
+<link rel="icon" type="image/png" href="images/mainNepcoLogo.png">
+<link rel="stylesheet" href="LBstylesheet.css">
+</head>
+<body>
+<header class="main-header">
+<div class="headerRow1">
+<img src="./images/mainNepcoLogo.jpg" alt="Nepco logo" class="mainLogo">
+<h1 class="homePageTitle">Nepco Beverages</h1>
+</div>
+
+
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+<a href="sodas.html">Sodas</a>
+<a href="FAQS.html">FAQs</a>
+</nav>
+</header>
+<main>
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">What year was Nepco first founded?</button>
+        <div class="faq-answer">
+          <p>Nepco was founded in the year 2000, in a Las Vegas garage when the first NepFizz prototype was created.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Why is Nepco soda known for its bright glow?</button>
+        <div class="faq-answer">
+          <p>The soda had too much aura.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Who's the mascot of NepCola?</button>
+        <div class="faq-answer">
+          <p>The OG of Atlantis, Poseidon.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What inspired the Neptune trident logo?</button>
+        <div class="faq-answer">
+          <p>It was inspired by the planet Neptune, which is Poseidon's planet and that's his trident. Nepcola is short for Neptune Cola.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    const faqs = document.querySelectorAll(".faq-item");
+
+    faqs.forEach(item => {
+      const question = item.querySelector(".faq-question");
+
+      question.addEventListener("click", () => {
+        // Close all other answers
+        faqs.forEach(other => {
+          if (other !== item) {
+            other.classList.remove("active");
+          }
+        });
+
+        // Toggle current one
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+
+
+</body>
+</html>
