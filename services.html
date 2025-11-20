@@ -1,126 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>NepCo - Services</title>
-  <link rel="icon" type="image/png" href="images/mainNepcoLogo.png">
-  <link rel="stylesheet" href="LBstylesheet.css">
-
-  <script defer>
-  document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".carousel-track");
-  const cards = Array.from(track.children);
-  const btnLeft = document.querySelector(".left-btn");
-  const btnRight = document.querySelector(".right-btn");
-  const container = document.querySelector(".carousel-container");
-
-  // Clone for infinite loop
-  const clonesBefore = [];
-  const clonesAfter = [];
-
-  cards.forEach(card => {
-    const cloneBefore = card.cloneNode(true);
-    cloneBefore.classList.add("clone");
-    track.insertBefore(cloneBefore, track.firstChild);
-    clonesBefore.push(cloneBefore);
-
-    const cloneAfter = card.cloneNode(true);
-    cloneAfter.classList.add("clone");
-    track.appendChild(cloneAfter);
-    clonesAfter.push(cloneAfter);
-  });
-
-  const allCards = Array.from(track.children);
-  let index = cards.length; // start at first real card
-
-  function getCardWidth() {
-    return allCards[0].getBoundingClientRect().width + parseInt(getComputedStyle(allCards[0]).marginLeft) * 2;
-  }
-
-  function updateCarousel(instant = false) {
-    const cardWidth = getCardWidth();
-    const containerCenter = container.offsetWidth / 2;
-    const cardCenter = cardWidth * index + cardWidth / 2;
-    const offset = containerCenter - cardCenter;
-
-    track.style.transition = instant ? "none" : "transform 0.5s ease";
-    track.style.transform = `translateX(${offset}px)`;
-
-    allCards.forEach(c => c.classList.remove("active"));
-    allCards[index].classList.add("active");
-  }
-
-  btnRight.addEventListener("click", () => {
-    index++;
-    updateCarousel();
-  });
-
-  btnLeft.addEventListener("click", () => {
-    index--;
-    updateCarousel();
-  });
-
-  track.addEventListener("transitionend", () => {
-    if (allCards[index].classList.contains("clone")) {
-      if (index < cards.length) index += cards.length;
-      else if (index >= cards.length * 2) index -= cards.length;
-      updateCarousel(true);
-    }
-  });
-
-  window.addEventListener("resize", updateCarousel);
-  updateCarousel(true);
-});
-
-
-  </script>
+<meta charset="UTF-8">
+<title>NepCo - Services</title>
+<link rel="icon" type="image/png" href="images/mainNepcoLogo.png">
+<link rel="stylesheet" href="services.css">
 </head>
-
 <body>
-
 <main>
+  <header class="main-header">
+    <div class="headerRow1">
+      <img src="./images/mainNepcoLogo.jpg" alt="Nepco logo" class="mainLogo">
+      <h1 class="homePageTitle">Nepco Beverages</h1>
+    </div>
 
-<header class="main-header">
-  <div class="headerRow1">
-    <img src="./images/mainNepcoLogo.jpg" alt="Nepco logo" class="mainLogo">
-    <h1 class="homePageTitle">Nepco Beverages</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="sodas.html">Sodas</a>
+    </nav>
+  </header>
+
+  <h2>Our Services</h2>
+
+  <div class="carousel-wrapper">
+    <button class="carousel-btn left-btn">&#10094;</button>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="carousel-card">
+          <a href="logistics.html"><img src="images/nepcoLogistics.jpg" class="serviceImg"></a>
+          <h3>Join Our Logistics Team</h3>
+          <p>Help us deliver Nepco Beverages worldwide!</p>
+        </div>
+        <div class="carousel-card">
+          <a href="retailer.html"><img src="images/nepcolaRetailer.jpg" class="serviceImg"></a>
+          <h3>Become a Retailer</h3>
+          <p>Stock Nepco drinks and offer them to your customers.</p>
+        </div>
+        <div class="carousel-card">
+          <a href="aboutme.html"><img src="images/poseidonCEO.jpg" class="serviceImg"></a>
+          <h3>About the Creator</h3>
+          <p>Meet the founder and learn the mission behind Nepco.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right-btn">&#10095;</button>
   </div>
-
-  <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a href="sodas.html">Sodas</a>
-  </nav>
-</header>
-
-<h2>Our Services</h2>
-
-<div class="carousel-container">
-  <button class="carousel-btn left-btn">&#10094;</button>
-
-  <div class="carousel-track">
-    <div class="serviceCard carousel-card">
-      <a href="logistics.html"><img src="images/nepcoLogistics.jpg" class="serviceImg"></a>
-      <h3>Join Our Logistics Team</h3>
-      <p>Help us deliver Nepco Beverages worldwide!</p>
-    </div>
-    <div class="serviceCard carousel-card">
-      <a href="retailer.html"><img src="images/nepcolaRetailer.jpg" class="serviceImg"></a>
-      <h3>Become a Retailer</h3>
-      <p>Stock Nepco drinks and offer them to your customers.</p>
-    </div>
-    <div class="serviceCard carousel-card">
-      <a href="aboutme.html"><img src="images/poseidonCEO.jpg" class="serviceImg"></a>
-      <h3>About the Creator</h3>
-      <p>Meet the founder and learn the mission behind Nepco.</p>
-    </div>
-    <!-- Add more cards here if needed -->
-  </div>
-
-  <button class="carousel-btn right-btn">&#10095;</button>
-</div>
 
 </main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".carousel-track");
+  const container = document.querySelector(".carousel-container");
+  const btnLeft = document.querySelector(".left-btn");
+  const btnRight = document.querySelector(".right-btn");
+
+  const cards = Array.from(track.children);
+  const cardCount = cards.length;
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    const moveX = cardWidth * currentIndex;
+    track.style.transition = "transform 0.5s ease";
+    track.style.transform = `translateX(-${moveX}px)`;
+  }
+
+  function moveRight() {
+    currentIndex++;
+    if (currentIndex >= cardCount) currentIndex = 0;
+    updateCarousel();
+  }
+
+  function moveLeft() {
+    currentIndex--;
+    if (currentIndex < 0) currentIndex = cardCount - 1;
+    updateCarousel();
+  }
+
+  btnRight.addEventListener("click", moveRight);
+  btnLeft.addEventListener("click", moveLeft);
+
+  // Center first card on load
+  updateCarousel();
+
+  window.addEventListener("resize", updateCarousel);
+});
+</script>
 </body>
 </html>
